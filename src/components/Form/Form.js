@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts';
 import { getContacts } from 'redux/selectors';
 
-
 export const Form = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
@@ -36,8 +35,10 @@ export const Form = () => {
     const existingNumber = contacts.some(contact => contact.number === number);
 
     if (existingName) {
+      alert ('This name is already exist')
       return;
     } else if (existingNumber) {
+      alert ('This number is already exist')
       return;
     }
     dispatch(addContact(name, number));
